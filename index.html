@@ -14,11 +14,37 @@
             color: red;
             font-size: 100px;
         }
+        .foto {
+            width: 150px;
+            border-radius: 50%;
+        }
     </style>
 </head>
 <body>
     <h1 class='titulo'>💖😀 NEWLAYER 😀<span class='coracao'>❤</span></h1>
     <span style='font-size:100px;'>&#129509;</span>
     <span style='font-size:100px;'>😎</span>
+
+    <img id='foto' class='foto' />
+
+    <script>
+        // const url = 'https://api.github.com/users/' + 'gabrielfroes'
+        const url = 'https://api.github.com/users/' + 'luciamorena'
+
+        // const url = 'https://avatars.githubusercontent.com/' + 'codigofonte'
+        // const url = 'https://github.com/' + 'gabrielfroes' + '.png'
+        // const url = 'https://github.com/' + 'luciamorena' + '.jpg'
+
+        setTimeout(()=> {
+            fetch(url)
+                .then(res => res.json())
+                .then(data => {
+                    console.log(data);
+                    console.log(data.avatar_url);
+                    document.getElementById('foto').src = data.avatar_url
+                })
+            // document.getElementById('foto').src = url
+        },2000)
+    </script>
 </body>
 </html>
